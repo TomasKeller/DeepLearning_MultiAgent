@@ -136,3 +136,108 @@ The agents learn from each other
 
 <img width="371" alt="image" src="https://github.com/user-attachments/assets/ce29465e-7c7e-46f9-b57b-9de4dba0d1c4" />
 
+
+
+<img width="381" alt="image" src="https://github.com/user-attachments/assets/10ded782-bb34-4040-b9cd-d74e59d37143" />
+
+Mental framework for agent creation
+<img width="710" alt="image" src="https://github.com/user-attachments/assets/d309f3aa-fb27-4bc1-9270-396a2d169050" />
+
+
+<img width="449" alt="image" src="https://github.com/user-attachments/assets/9e200907-6c5e-40d9-ad2e-bb0fe4ae628b" />
+
+<img width="880" alt="image" src="https://github.com/user-attachments/assets/ac77f9df-c695-4a9d-b550-ca72e9a81b8e" />
+
+<img width="896" alt="image" src="https://github.com/user-attachments/assets/cbea30df-e7dd-4013-931f-3948c4ff888f" />
+
+<img width="624" alt="image" src="https://github.com/user-attachments/assets/6e9c4c9a-5923-4f5e-bb92-3e9376b166eb" />
+
+<img width="449" alt="image" src="https://github.com/user-attachments/assets/9813422e-f4fb-4fa0-b90c-98763bcf39b2" />
+In the ¨indstructions¨ folder, there are markdown files that describes how to treat different sizes companies
+
+<img width="348" alt="image" src="https://github.com/user-attachments/assets/d212485f-5b0b-4d8d-9d27-da11fd1c170f" />
+
+
+<img width="517" alt="image" src="https://github.com/user-attachments/assets/094e3478-9ad6-4a35-90e4-c0c30e4fba1d" />
+
+<img width="831" alt="image" src="https://github.com/user-attachments/assets/e12be3c6-5c4a-4595-a0cd-bafc0e6a7875" />
+
+```python
+# Agent 1: Venue Coordinator
+venue_coordinator = Agent(
+    role="Venue Coordinator",
+    goal="Identify and book an appropriate venue "
+    "based on event requirements",
+    tools=[search_tool, scrape_tool],
+    verbose=True,
+    backstory=(
+        "With a keen sense of space and "
+        "understanding of event logistics, "
+        "you excel at finding and securing "
+        "the perfect venue that fits the event's theme, "
+        "size, and budget constraints."
+    )
+)
+```
+
+```python
+ # Agent 2: Logistics Manager
+logistics_manager = Agent(
+    role='Logistics Manager',
+    goal=(
+        "Manage all logistics for the event "
+        "including catering and equipmen"
+    ),
+    tools=[search_tool, scrape_tool],
+    verbose=True,
+    backstory=(
+        "Organized and detail-oriented, "
+        "you ensure that every logistical aspect of the event "
+        "from catering to equipment setup "
+        "is flawlessly executed to create a seamless experience."
+    )
+)
+```
+
+```python
+# Agent 3: Marketing and Communications Agent
+marketing_communications_agent = Agent(
+    role="Marketing and Communications Agent",
+    goal="Effectively market the event and "
+         "communicate with participants",
+    tools=[search_tool, scrape_tool],
+    verbose=True,
+    backstory=(
+        "Creative and communicative, "
+        "you craft compelling messages and "
+        "engage with potential attendees "
+        "to maximize event exposure and participation."
+    )
+)
+```
+
+Let the agents fill in the class VenueDetails
+```python
+from pydantic import BaseModel
+# Define a Pydantic model for venue details 
+# (demonstrating Output as Pydantic)
+class VenueDetails(BaseModel):
+    name: str
+    address: str
+    capacity: int
+    booking_status: str
+```
+
+```python
+venue_task = Task(
+    description="Find a venue in {event_city} "
+                "that meets criteria for {event_topic}.",
+    expected_output="All the details of a specifically chosen"
+                    "venue you found to accommodate the event.",
+    human_input=True,
+    output_json=VenueDetails,
+    output_file="venue_details.json",  
+      # Outputs the venue details as a JSON file
+    agent=venue_coordinator
+)
+```
