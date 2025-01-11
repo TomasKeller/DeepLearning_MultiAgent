@@ -116,3 +116,23 @@ Summary
 
 <img width="411" alt="image" src="https://github.com/user-attachments/assets/0a90c92c-9e3e-41db-b157-89594a8313c7" />
 
+What makes Agents great?
+(Memory is the most important)
+<img width="858" alt="image" src="https://github.com/user-attachments/assets/b2c124d5-9b4c-46ad-83b9-308f739f8651" />
+
+<img width="863" alt="image" src="https://github.com/user-attachments/assets/5f22e210-1c30-45ea-85ef-cd91117ed818" />
+The agents learn from each other
+
+<img width="895" alt="image" src="https://github.com/user-attachments/assets/cc1b3957-a5db-4560-8135-73148025b9b3" />
+
+
+<img width="337" alt="image" src="https://github.com/user-attachments/assets/3af1a497-f548-43d7-8a2b-c609d388011b" />
+
+<img width="383" alt="image" src="https://github.com/user-attachments/assets/eea65dcf-f4ea-4bd6-a8c2-279734bc9965" />
+
+<img width="356" alt="image" src="https://github.com/user-attachments/assets/e2c53408-6aa4-4319-b6da-7fa9c8799c98" />
+
+<img width="299" alt="image" src="https://github.com/user-attachments/assets/b8595f5a-d094-4403-b4c3-9f190fd00e74" />
+
+<img width="371" alt="image" src="https://github.com/user-attachments/assets/ce29465e-7c7e-46f9-b57b-9de4dba0d1c4" />
+
