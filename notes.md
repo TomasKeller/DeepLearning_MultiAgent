@@ -50,7 +50,7 @@ planner = Agent(
 	verbose=True
 )
 
-```python
+```
 
 Writer Agent
 
@@ -76,7 +76,7 @@ writer = Agent(
     allow_delegation=False,
     verbose=True
 )
-```python
+```
 
 Write Task
 ```python
@@ -98,4 +98,21 @@ write = Task(
         "each section should have 2 or 3 paragraphs.",
     agent=writer,
 )
+```
+
+Creating the Crew
+
 ```python
+crew = Crew(
+    agents=[planner, writer, editor],
+    tasks=[plan, write, edit],
+    verbose=2
+)
+```
+
+<img width="444" alt="image" src="https://github.com/user-attachments/assets/0f692d97-2373-463d-9dfe-dd1d28730c0b" />
+
+Summary 
+
+<img width="411" alt="image" src="https://github.com/user-attachments/assets/0a90c92c-9e3e-41db-b157-89594a8313c7" />
+
