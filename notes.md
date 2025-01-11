@@ -241,3 +241,68 @@ venue_task = Task(
     agent=venue_coordinator
 )
 ```
+
+This task is waiting for human input
+```python
+logistics_task = Task(
+    description="Coordinate catering and "
+                 "equipment for an event "
+                 "with {expected_participants} participants "
+                 "on {tentative_date}.",
+    expected_output="Confirmation of all logistics arrangements "
+                    "including catering and equipment setup.",
+    human_input=True,
+    async_execution=True,
+    agent=logistics_manager
+)
+```
+
+<img width="446" alt="image" src="https://github.com/user-attachments/assets/f0cc0d49-ced9-4173-bdd0-ad984b90f135" />
+
+<img width="644" alt="image" src="https://github.com/user-attachments/assets/2fa2933b-5e58-4a5d-bbb4-af2a800ca01f" />
+
+Adding Process, automatically creates a CrewAI Manager who delegates work among the agents
+```python
+from crewai import Crew, Process
+from langchain_openai import ChatOpenAI
+
+# Define the crew with agents and tasks
+financial_trading_crew = Crew(
+    agents=[data_analyst_agent, 
+            trading_strategy_agent, 
+            execution_agent, 
+            risk_management_agent],
+    
+    tasks=[data_analysis_task, 
+           strategy_development_task, 
+           execution_planning_task, 
+           risk_assessment_task],
+    
+    manager_llm=ChatOpenAI(model="gpt-3.5-turbo", 
+                           temperature=0.7),
+    process=Process.hierarchical,
+    verbose=True
+)
+```
+<img width="440" alt="image" src="https://github.com/user-attachments/assets/d76b9c01-4acb-4ed8-a2b0-333671827024" />
+
+<img width="390" alt="image" src="https://github.com/user-attachments/assets/900e05ed-c84d-4f32-9d85-f7693c908fe5" />
+
+<img width="381" alt="image" src="https://github.com/user-attachments/assets/ef220a7d-6e4c-4a82-8e60-443aa35b53c2" />
+
+Tools
+```python
+from crewai_tools import (
+  FileReadTool,
+  ScrapeWebsiteTool,
+  MDXSearchTool,
+  SerperDevTool
+)
+
+search_tool = SerperDevTool()
+scrape_tool = ScrapeWebsiteTool()
+read_resume = FileReadTool(file_path='./fake_resume.md')
+semantic_search_resume = MDXSearchTool(mdx='./fake_resume.md')
+```
+
+<img width="825" alt="image" src="https://github.com/user-attachments/assets/a50910a8-2dd1-43dc-8dc2-e1028725afb6" />
